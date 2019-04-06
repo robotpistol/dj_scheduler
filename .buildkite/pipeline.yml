@@ -1,6 +1,11 @@
-
 steps:
   - label: ":rspec:"
-    command: "bundle install && bundle rake db:migrate && bundle exec rspec --color specs"
+    commands:
+      - echo "Hello!"
+  - label: ":rspec:"
+    commands:
+      - bundle rake db:migrate
+      - bundle exec rspec --color specs
   - label: ":rubocop:"
-    command: "bundle install && bundle exec rubocop"
+    commands:
+      - bundle exec rubocop
