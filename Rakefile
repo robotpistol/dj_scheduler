@@ -4,10 +4,14 @@ require 'sequel'
 require 'yaml'
 
 ENV['RACK_ENV'] ||= 'dev'
+database = ENV['DATABASE_URL']
+if database.nil?
 
-database_creds = YAML.safe_load(File.read(File.join(File.dirname(__FILE__), 'config/database.yml')))
-config_key = "dj_scheduler_db_#{ENV['RACK_ENV']}"
-database = database_creds[config_key]
+  config_file_path = File.read(File.join(File.dirname(__FILE__), '../config/database.yml'))
+  database_creds = YAML.safe_load(config_file_path, [], [], true)
+  config_key = "dj_scheduler_db_#{ENV['RACK_ENV']}"
+  database = database_creds[config_key]
+end
 
 raise 'Problem loading db config!' unless database
 
