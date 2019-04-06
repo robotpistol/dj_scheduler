@@ -1,8 +1,6 @@
 
 steps:
   - name: ":rspec:"
-    command: "bundle install && \
-      bundle rake db:migrate && \
-      bundle exec rspec --color specs"
+    command: "bundle install && bundle rake db:migrate && bundle exec rspec --color specs"
   - name: ":rubocop:"
     command: "bundle install && bundle exec rubocop"
