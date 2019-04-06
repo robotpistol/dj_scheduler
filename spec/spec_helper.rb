@@ -8,6 +8,7 @@ require 'sequel'
 
 ENV['RACK_ENV'] = 'test'
 database = ENV['DATABASE_URL']
+puts database.inspect
 if database.nil?
   config_file_path = File.read(File.join(File.dirname(__FILE__), '../config/database.yml'))
   database_creds = YAML.safe_load(config_file_path, [], [], true)
