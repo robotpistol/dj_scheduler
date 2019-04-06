@@ -2,7 +2,7 @@ steps:
   - label: ":rspec:"
     commands:
       - bundle exec rake db:migrate
-      - bundle exec rspec --color specs
+      - bundle exec rspec --color
   - label: ":rubocop:"
     commands:
       - bundle exec rubocop
