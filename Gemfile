@@ -5,12 +5,12 @@ source 'https://rubygems.org'
 git_source(:github) { |_repo_name| 'https://github.com/robotpistol/dj_scheduler' }
 
 gem 'pg'
-gem 'unicorn'
 gem 'rake'
 gem 'sequel'
 gem 'sinatra', '~> 2.0.0'
 gem 'sinatra-contrib'
 gem 'sinatra-sequel'
+gem 'unicorn'
 
 group :test, :development do
   gem 'rubocop'
