@@ -1,0 +1,22 @@
+# Used this to configure sqlite
+# Point this to the configuration above that you wish to use
+sqlite: &dj_scheduler_sqlite
+  adapter: sqlite
+  database: development.db
+  verbosity: quiet
+# Use this to configure mysql
+pg: &dj_scheduler_mysql
+  encoding: utf8
+  reconnect: true
+  adapter: mysql2
+  username: airgo
+  database: airgo
+  host: localhost
+  port: 3306
+  password: password
+dj_scheduler_db_production:
+  <<: *dj_scheduler_sqlite
+dj_scheduler_db_dev:
+  <<: *dj_scheduler_sqlite
+dj_scheduler_db_test:
+  <<: *dj_scheduler_sqlite
